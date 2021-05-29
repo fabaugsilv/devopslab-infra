@@ -22,6 +22,11 @@ resource "google_compute_instance" "firstvm" {
   }
 }
 
+resource "google_app_engine_application" "app" {
+  project     = "directed-cove-314122"
+  location_id = "us-central"
+}
+
 # Retorna o IP da VM criada
 output "ip" {
   value = google_compute_instance.firstvm.network_interface.0.access_config.0.nat_ip
